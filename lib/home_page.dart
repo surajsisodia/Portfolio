@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           if (index == 1)
                             return getHomePage();
                           else if (index == 0)
-                            return getSkillPage();
+                            return getProjectPage();
                           else
                             return getHomePage();
                         }),
@@ -288,6 +288,222 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Image.asset('assets/images/firebase-icon.png'),
               ).showCursor.zoomInOnHover,
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  getProjectPage() {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+
+    return Container(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Projects",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: h * 0.05,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: w / 8,
+          ),
+          Padding(
+            padding: EdgeInsets.all(w / 40),
+            child: Row(
+              children: [
+                Card(
+                  margin: EdgeInsets.symmetric(horizontal: w / 50),
+                  shadowColor: Colors.grey,
+                  color: Color(0xff1e212d),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  elevation: 10,
+                  child: Container(
+                    height: w / 5,
+                    width: w / 5,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(w / 60),
+                          child: Text(
+                            "GlowCal",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w / 80,
+                                fontFamily: "Poppins"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Image.asset(
+                          "assets/images/glowcal.png",
+                          width: w / 8,
+                          height: w / 8,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Repo Link",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: w / 160,
+                                  fontFamily: "Poppins"),
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  margin: EdgeInsets.symmetric(horizontal: w / 50),
+                  shadowColor: Colors.grey,
+                  color: Color(0xff1e212d),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  elevation: 10,
+                  child: Container(
+                    height: w / 5,
+                    width: w / 5,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(w / 60),
+                          child: Text(
+                            "ConJoin",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w / 80,
+                                fontFamily: "Poppins"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Image.asset(
+                          "assets/images/co.png",
+                          width: w / 8,
+                          height: w / 8,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Repo Link",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: w / 160,
+                                  fontFamily: "Poppins"),
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  margin: EdgeInsets.symmetric(horizontal: w / 50),
+                  shadowColor: Colors.grey,
+                  color: Color(0xff1e212d),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  elevation: 10,
+                  child: Container(
+                    height: w / 5,
+                    width: w / 5,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(w / 60),
+                          child: Text(
+                            "ConJoin",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w / 80,
+                                fontFamily: "Poppins"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Image.asset(
+                          "assets/images/co.png",
+                          width: w / 8,
+                          height: w / 8,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Repo Link",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: w / 160,
+                                  fontFamily: "Poppins"),
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 10,
+            child: Container(
+              height: 100,
+              width: 100,
+              child: Column(
+                children: [
+                  Text("GlowCal"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Image.asset(
+                    "assets/images/glowcal.png",
+                    width: w / 3.5,
+                  )
+                ],
+              ),
+            ),
           ),
         ],
       ),
