@@ -58,5 +58,8 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Medium.ttf
+    - family : Caveat
+      fonts:
+        - asset: assets/fonts/Caveat-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

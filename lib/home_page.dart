@@ -314,9 +314,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ],
           ),
-          SizedBox(
-            height: w / 8,
-          ),
           Padding(
             padding: EdgeInsets.all(w / 40),
             child: Row(
@@ -329,12 +326,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(30)),
                   elevation: 10,
                   child: Container(
-                    height: w / 5,
+                    height: w / 6,
                     width: w / 5,
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(w / 60),
+                          padding: EdgeInsets.all(w / 100),
                           child: Text(
                             "GlowCal",
                             style: TextStyle(
@@ -348,8 +345,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                         Image.asset(
                           "assets/images/glowcal.png",
-                          width: w / 8,
-                          height: w / 8,
+                          width: w / 9,
+                          height: w / 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -383,12 +380,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(30)),
                   elevation: 10,
                   child: Container(
-                    height: w / 5,
+                    height: w / 6,
                     width: w / 5,
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(w / 60),
+                          padding: EdgeInsets.all(w / 100),
                           child: Text(
                             "ConJoin",
                             style: TextStyle(
@@ -402,8 +399,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                         Image.asset(
                           "assets/images/co.png",
-                          width: w / 8,
-                          height: w / 8,
+                          width: w / 9,
+                          height: w / 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -437,12 +434,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(30)),
                   elevation: 10,
                   child: Container(
-                    height: w / 5,
+                    height: w / 6,
                     width: w / 5,
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(w / 60),
+                          padding: EdgeInsets.all(w / 100),
                           child: Text(
                             "ConJoin",
                             style: TextStyle(
@@ -456,8 +453,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                         Image.asset(
                           "assets/images/co.png",
-                          width: w / 8,
-                          height: w / 8,
+                          width: w / 9,
+                          height: w / 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -486,23 +483,65 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          Card(
-            elevation: 10,
-            child: Container(
-              height: 100,
-              width: 100,
-              child: Column(
-                children: [
-                  Text("GlowCal"),
-                  SizedBox(
-                    height: 20,
+          Padding(
+            padding: EdgeInsets.all(w / 40),
+            child: Row(
+              children: [
+                Card(
+                  margin: EdgeInsets.symmetric(horizontal: w / 50),
+                  shadowColor: Colors.grey,
+                  color: Color(0xff1e212d),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  elevation: 10,
+                  child: Container(
+                    height: w / 6,
+                    width: w / 5,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(w / 100),
+                          child: Text(
+                            "ConJoin",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: w / 80,
+                                fontFamily: "Poppins"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Image.asset(
+                          "assets/images/co.png",
+                          width: w / 9,
+                          height: w / 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Repo Link",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: w / 160,
+                                  fontFamily: "Poppins"),
+                            ),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  Image.asset(
-                    "assets/images/glowcal.png",
-                    width: w / 3.5,
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

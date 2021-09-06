@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/home_page.dart';
 
 void main() {
@@ -10,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Suraj Sisodia',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Suraj Sisodia',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Home()
+        //HomePage(),
+        );
   }
 }
