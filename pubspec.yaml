@@ -58,6 +58,11 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 500
     - family : Caveat
       fonts:
         - asset: assets/fonts/Caveat-Regular.ttf
