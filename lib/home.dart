@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/utils/colors.dart';
@@ -10,21 +11,42 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  PageController controller = PageController();
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  PageController controller = PageController(keepPage: true);
+
   bool showAppBar = false;
+  bool showSwipe = true;
+  late AnimationController animationController;
+  late TabController tabController;
+  double swipeOpacity = 0;
+
   @override
   void initState() {
     super.initState();
 
     controller.addListener(() {
-      if (controller.page == 0)
+      if (controller.page! < 0.5)
         showAppBar = false;
       else
         showAppBar = true;
 
+      if (controller.page == 0)
+        swipeOpacity = 1;
+      else
+        swipeOpacity = 0;
+
       setState(() {});
     });
+
+    animationController = AnimationController(vsync: this);
+    tabController = TabController(length: 6, vsync: this);
+    startAnimation();
+  }
+
+  startAnimation() async {
+    await Future.delayed(Duration(milliseconds: 3500));
+    swipeOpacity = 1;
+    setState(() {});
   }
 
   @override
@@ -36,7 +58,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: showAppBar
+      appBar: !showAppBar
           ? null
           : AppBar(
               backgroundColor: Colors.transparent,
@@ -44,62 +66,73 @@ class _HomeState extends State<Home> {
               shadowColor: Colors.transparent,
               elevation: 0,
               actions: [
-                Row(
-                  children: [
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                      decoration: BoxDecoration(
-                          color: selectColor,
-                          borderRadius: BorderRadius.all(Radius.circular(100))),
-                      child: Text("Home",
+                SizedBox(
+                  width: 700,
+                  child: TabBar(
+                    controller: tabController,
+                    tabs: [
+                      Text("Home",
                           style:
                               TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text('About',
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text("Projects",
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text('Skills',
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text('Education',
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text('Contact',
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    SizedBox(
-                      width: 40,
-                    ),
-                  ],
+                      Text('About',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      Text("Projects",
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      Text('Skills',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      Text('Education',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      Text('Contact',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                    ],
+                    unselectedLabelColor: Colors.white,
+                    labelColor: Colors.white,
+                    indicatorPadding:
+                        EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: selectColor),
+                  ),
                 ),
               ],
             ),
       extendBodyBehindAppBar: true,
       backgroundColor: darkColor,
-      body: PageView(
-        controller: controller,
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        onPageChanged: (page) {
-          if (page > 0) {}
-        },
+      body: Stack(
         children: [
-          AboutPage(),
-          NamePage(),
+          PageView(
+            controller: controller,
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            onPageChanged: (page) {
+              tabController.animateTo(page);
+            },
+            children: [
+              NamePage(),
+              AboutPage(),
+              AboutPage(),
+              AboutPage(),
+              AboutPage()
+            ],
+          ),
+          AnimatedOpacity(
+            curve: Curves.easeOut,
+            duration: Duration(milliseconds: 1000),
+            opacity: swipeOpacity,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Lottie.asset(
+                'assets/anim/swipe.json',
+                width: 100,
+              ),
+            ),
+          )
         ],
       ),
     );
