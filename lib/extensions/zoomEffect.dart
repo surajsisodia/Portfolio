@@ -10,7 +10,7 @@ class ZoomEffect extends StatefulWidget {
 
 class _ZoomEffectState extends State<ZoomEffect> {
   final nonHoverTransform = Matrix4.identity();
-  final hoverTransform = Matrix4.identity()..scale(1.2);
+  final hoverTransform = Matrix4.identity()..scale(1.5);
 
   bool isHover = false;
 

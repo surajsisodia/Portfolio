@@ -4,6 +4,8 @@ import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/utils/colors.dart';
+import 'package:my_portfolio/extensions/hover_extentions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -119,9 +121,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               tabController.animateTo(page);
             },
             children: [
-              EduPage(),
               NamePage(),
               AboutPage(),
+              EduPage(),
               AboutPage(),
               AboutPage(),
               AboutPage()
@@ -136,6 +138,56 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               child: Lottie.asset(
                 'assets/anim/swipe.json',
                 width: 100,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () async {
+                      await launch('https://www.instagram.com/the.hustler___/');
+                    },
+                    child: Image.asset(
+                      'assets/images/instagram.png',
+                      width: 20,
+                    ),
+                  ).showCursor.zoomInOnHover,
+                  SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () async {
+                      await launch('https://www.linkedin.com/in/ss26/');
+                    },
+                    child: Image.asset(
+                      'assets/images/linkedin.png',
+                      width: 20,
+                    ),
+                  ).showCursor.zoomInOnHover,
+                  SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () async {
+                      await launch('https://github.com/surajsisodia');
+                    },
+                    child: Image.asset(
+                      'assets/images/github.png',
+                      width: 20,
+                    ),
+                  ).showCursor.zoomInOnHover,
+                  SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: () async {
+                      await launch('https://twitter.com/marcos_suraj');
+                    },
+                    child: Image.asset(
+                      'assets/images/twitter.png',
+                      width: 20,
+                    ),
+                  ).showCursor.zoomInOnHover,
+                ],
               ),
             ),
           )

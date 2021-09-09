@@ -54,7 +54,7 @@ class AboutPage extends StatelessWidget {
                             curve: Curves.ease,
                             speed: Duration(milliseconds: 100),
                             textStyle: TextStyle(
-                              color: Colors.white,
+                              color: selectColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 24,
                               fontFamily: "Poppins",
@@ -65,7 +65,8 @@ class AboutPage extends StatelessWidget {
                             curve: Curves.ease,
                             speed: Duration(milliseconds: 100),
                             textStyle: TextStyle(
-                              color: Colors.white,
+                              color: selectColor,
+                              fontWeight: FontWeight.w500,
                               fontSize: 24,
                               fontFamily: "Poppins",
                             ),
@@ -75,7 +76,8 @@ class AboutPage extends StatelessWidget {
                             curve: Curves.ease,
                             speed: Duration(milliseconds: 100),
                             textStyle: TextStyle(
-                              color: Colors.white,
+                              color: selectColor,
+                              fontWeight: FontWeight.w500,
                               fontSize: 24,
                               fontFamily: "Poppins",
                             ),
