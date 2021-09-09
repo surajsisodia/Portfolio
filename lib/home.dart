@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
+import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
@@ -77,13 +78,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       Text('About',
                           style:
                               TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      Text('Education',
+                          style:
+                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
                       Text("Projects",
                           style:
                               TextStyle(fontFamily: 'Poppins', fontSize: 16)),
                       Text('Skills',
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text('Education',
                           style:
                               TextStyle(fontFamily: 'Poppins', fontSize: 16)),
                       Text('Contact',
@@ -98,6 +99,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         color: selectColor),
+                    onTap: (tab) {
+                      controller.animateToPage(tab,
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeOut);
+                    },
                   ),
                 ),
               ],
@@ -108,12 +114,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         children: [
           PageView(
             controller: controller,
-            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             onPageChanged: (page) {
               tabController.animateTo(page);
             },
             children: [
+              EduPage(),
               NamePage(),
               AboutPage(),
               AboutPage(),
