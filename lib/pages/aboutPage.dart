@@ -15,7 +15,16 @@ class AboutPage extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Container(
+              child:
+                  // Container(
+                  //   width: 300,
+                  //   height: 300,
+                  //   child: ClipRRect(
+                  //     borderRadius: BorderRadius.circular(1000),
+                  //     child: Image.asset('assets/images/aboutImg.jpg'),
+                  //   ),
+                  // ),
+                  Container(
                 height: 300,
                 width: 300,
                 decoration: BoxDecoration(

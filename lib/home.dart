@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
+import 'package:my_portfolio/pages/projectPage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -121,7 +122,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               tabController.animateTo(page);
             },
             children: [
-              NamePage(),
+              ProjectPage(),
               AboutPage(),
               EduPage(),
               AboutPage(),
