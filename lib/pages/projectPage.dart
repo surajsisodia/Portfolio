@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
@@ -24,8 +22,31 @@ class ProjectPage extends StatelessWidget {
                   des:
                       "Sample Sample Sample Sample Sample Sample Sample Sample Sample "),
               projectCard(
-                  image: 'assets/images/glowcal.png',
-                  title: "GlowCal",
+                  image: 'assets/images/askthrifty.png',
+                  title: "AskThrifty",
+                  des:
+                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample "),
+              projectCard(
+                  image: 'assets/images/co.png',
+                  title: "ConJoin",
+                  des:
+                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample "),
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              projectCard(
+                  image: 'assets/images/saidiera.png',
+                  title: "Saidiera Supermercado",
+                  des:
+                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample "),
+              projectCard(
+                  image: 'assets/images/jag.png',
+                  title: "JagCab",
                   des:
                       "Sample Sample Sample Sample Sample Sample Sample Sample Sample "),
             ],
@@ -45,6 +66,7 @@ class ProjectPage extends StatelessWidget {
       elevation: 0,
       child: Container(
         width: 400,
+        margin: EdgeInsets.symmetric(horizontal: 20),
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         decoration: BoxDecoration(
           backgroundBlendMode: BlendMode.screen,

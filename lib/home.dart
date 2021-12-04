@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_portfolio/home_page.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/pages/projectPage.dart';
+import 'package:my_portfolio/pages/skillPage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -122,12 +124,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               tabController.animateTo(page);
             },
             children: [
-              ProjectPage(),
+              NamePage(),
               AboutPage(),
               EduPage(),
+              ProjectPage(),
+              SkillPage(),
               AboutPage(),
-              AboutPage(),
-              AboutPage()
             ],
           ),
           AnimatedOpacity(
