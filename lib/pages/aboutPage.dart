@@ -24,6 +24,7 @@ class AboutPage extends StatelessWidget {
                   //     child: Image.asset('assets/images/aboutImg.jpg'),
                   //   ),
                   // ),
+
                   Container(
                 height: 300,
                 width: 300,
@@ -31,7 +32,7 @@ class AboutPage extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Colors.blue,
                   image: DecorationImage(
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                     scale: 1,
                     image: AssetImage('assets/images/aboutImg.jpg'),
                   ),

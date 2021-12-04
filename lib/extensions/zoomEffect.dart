@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ZoomEffect extends StatefulWidget {
   final Widget? child;
-  const ZoomEffect({Key? key, this.child}) : super(key: key);
+  final double? zoomScale;
+  const ZoomEffect({Key? key, this.child, this.zoomScale}) : super(key: key);
 
   @override
   _ZoomEffectState createState() => _ZoomEffectState();
@@ -10,9 +11,16 @@ class ZoomEffect extends StatefulWidget {
 
 class _ZoomEffectState extends State<ZoomEffect> {
   final nonHoverTransform = Matrix4.identity();
-  final hoverTransform = Matrix4.identity()..scale(1.5);
+  late final hoverTransform;
 
   bool isHover = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    hoverTransform = Matrix4.identity()..scale(widget.zoomScale);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

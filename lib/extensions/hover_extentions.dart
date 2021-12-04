@@ -17,6 +17,14 @@ extension HoverExtentions on Widget {
   Widget get zoomInOnHover {
     return ZoomEffect(
       child: this,
+      zoomScale: 1.5,
+    );
+  }
+
+  Widget get zoomInOnHoverSmall {
+    return ZoomEffect(
+      child: this,
+      zoomScale: 1.1,
     );
   }
 }
