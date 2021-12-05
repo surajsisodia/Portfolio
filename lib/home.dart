@@ -1,6 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_portfolio/home_page.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/contactPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
@@ -60,10 +61,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   void dispose() {
     super.dispose();
     controller.dispose();
+    tabController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    var b = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: !showAppBar
           ? null
@@ -73,45 +78,46 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               shadowColor: Colors.transparent,
               elevation: 0,
               actions: [
-                SizedBox(
-                  width: 700,
-                  child: TabBar(
-                    controller: tabController,
-                    tabs: [
-                      Text("Home",
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text('About',
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text('Education',
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text("Projects",
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text('Skills',
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                      Text('Contact',
-                          style:
-                              TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                    ],
-                    unselectedLabelColor: Colors.white,
-                    labelColor: Colors.white,
-                    indicatorPadding:
-                        EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: selectColor),
-                    onTap: (tab) {
-                      controller.animateToPage(tab,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeOut);
-                    },
+                if (b / 0.9 > h)
+                  SizedBox(
+                    width: 700,
+                    child: TabBar(
+                      controller: tabController,
+                      tabs: [
+                        Text("Home",
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text('About',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text('Education',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text("Projects",
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text('Skills',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text('Contact',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                      ],
+                      unselectedLabelColor: Colors.white,
+                      labelColor: Colors.white,
+                      indicatorPadding:
+                          EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicator: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: selectColor),
+                      onTap: (tab) {
+                        controller.animateToPage(tab,
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeOut);
+                      },
+                    ),
                   ),
-                ),
               ],
             ),
       extendBodyBehindAppBar: true,
@@ -151,56 +157,64 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () async {
-                      await launch('https://www.instagram.com/the.hustler___/');
-                    },
-                    child: Image.asset(
-                      'assets/images/instagram.png',
-                      width: 20,
+          if (b / 0.7 > h)
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.all(min(15, b * 0.05)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () async {
+                        await launch(
+                            'https://www.instagram.com/the.hustler___/');
+                      },
+                      child: Image.asset(
+                        'assets/images/instagram.png',
+                        width: h * 0.02,
+                      ),
+                    ).showCursor.zoomInOnHover,
+                    SizedBox(
+                      width: h * 0.02,
                     ),
-                  ).showCursor.zoomInOnHover,
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () async {
-                      await launch('https://www.linkedin.com/in/ss26/');
-                    },
-                    child: Image.asset(
-                      'assets/images/linkedin.png',
-                      width: 20,
+                    GestureDetector(
+                      onTap: () async {
+                        await launch('https://www.linkedin.com/in/ss26/');
+                      },
+                      child: Image.asset(
+                        'assets/images/linkedin.png',
+                        width: h * 0.02,
+                      ),
+                    ).showCursor.zoomInOnHover,
+                    SizedBox(
+                      width: h * 0.02,
                     ),
-                  ).showCursor.zoomInOnHover,
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () async {
-                      await launch('https://github.com/surajsisodia');
-                    },
-                    child: Image.asset(
-                      'assets/images/github.png',
-                      width: 20,
+                    GestureDetector(
+                      onTap: () async {
+                        await launch('https://github.com/surajsisodia');
+                      },
+                      child: Image.asset(
+                        'assets/images/github.png',
+                        width: h * 0.02,
+                      ),
+                    ).showCursor.zoomInOnHover,
+                    SizedBox(
+                      width: h * 0.02,
                     ),
-                  ).showCursor.zoomInOnHover,
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () async {
-                      await launch('https://twitter.com/marcos_suraj');
-                    },
-                    child: Image.asset(
-                      'assets/images/twitter.png',
-                      width: 20,
-                    ),
-                  ).showCursor.zoomInOnHover,
-                ],
+                    GestureDetector(
+                      onTap: () async {
+                        await launch('https://twitter.com/marcos_suraj');
+                      },
+                      child: Image.asset(
+                        'assets/images/twitter.png',
+                        width: h * 0.02,
+                      ),
+                    ).showCursor.zoomInOnHover,
+                  ],
+                ),
               ),
-            ),
-          )
+            )
         ],
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
@@ -9,6 +11,8 @@ class SkillPage extends StatefulWidget {
 }
 
 class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
+  late double b, h;
+
   double sideLineHeight = 0;
   late final AnimationController controller1;
   late final AnimationController controller2;
@@ -39,7 +43,7 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
 
   startAnim() async {
     await Future.delayed(Duration(seconds: 1));
-    sideLineHeight = 700;
+    sideLineHeight = h * 0.8;
     setState(() {});
 
     await Future.delayed(Duration(seconds: 1));
@@ -54,8 +58,11 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    b = MediaQuery.of(context).size.width;
+    h = MediaQuery.of(context).size.height;
+
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
       color: darkColor,
       child: Stack(
         children: [
@@ -71,12 +78,12 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                   ),
                   AnimatedContainer(
                     duration: Duration(seconds: 1),
-                    width: 5,
+                    width: 4,
                     height: sideLineHeight,
                     color: Colors.white,
                   ),
                   SizedBox(
-                    width: 20,
+                    width: b * 0.015,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,12 +98,12 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                                 "Languages",
                                 style: TextStyle(
                                     color: selectColor,
-                                    fontSize: 22,
+                                    fontSize: h * 0.023,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: b * 0.015,
                             ),
                             skillIcon('assets/images/c-icon.png', "C"),
                             skillIcon('assets/images/cpp-icon.png', "C++"),
@@ -108,7 +115,7 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: h * 0.020,
                       ),
                       FadeTransition(
                         opacity: animation2,
@@ -120,12 +127,12 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                                 "Frameworks/Technologies",
                                 style: TextStyle(
                                     color: selectColor,
-                                    fontSize: 22,
+                                    fontSize: h * 0.023,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: b * 0.015,
                             ),
                             skillIcon(
                                 'assets/images/flutter-icon.png', "Flutter"),
@@ -137,7 +144,7 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: h * 0.020,
                       ),
                       FadeTransition(
                         opacity: animation3,
@@ -149,12 +156,12 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                                 "Databases",
                                 style: TextStyle(
                                     color: selectColor,
-                                    fontSize: 22,
+                                    fontSize: h * 0.023,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: b * 0.015,
                             ),
                             skillIcon('assets/images/sql-icon.png', "SQL"),
                             skillIcon('assets/images/hive-icon.png', "HiveDB"),
@@ -163,7 +170,7 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: h * 0.020,
                       ),
                       FadeTransition(
                         opacity: animation4,
@@ -175,12 +182,12 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
                                 "Misc.",
                                 style: TextStyle(
                                     color: selectColor,
-                                    fontSize: 22,
+                                    fontSize: h * 0.023,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: b * 0.015,
                             ),
                             skillIcon(
                                 'assets/images/firebase-icon.png', "Firebase"),
@@ -202,7 +209,7 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
               "Skills",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.1),
-                fontSize: 80,
+                fontSize: min(80, b * 0.14),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
@@ -215,16 +222,15 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
 
   skillIcon(String file, String name) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: min(b * 0.014, 20)),
       child: Column(
         children: [
           Image.asset(
             file,
-            height: 70,
-            width: 70,
+            height: min(b * 0.08, 70),
           ),
           SizedBox(
-            height: 20,
+            height: h * 0.025,
           ),
           Text(
             name,

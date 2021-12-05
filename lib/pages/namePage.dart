@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
@@ -11,6 +13,7 @@ class NamePage extends StatefulWidget {
 class _NamePageState extends State<NamePage> {
   double sideLinesWidth = 0;
   double heyOpacity = 0, nameOpacity = 0;
+  late double b, h;
 
   @override
   void initState() {
@@ -38,6 +41,9 @@ class _NamePageState extends State<NamePage> {
 
   @override
   Widget build(BuildContext context) {
+    b = MediaQuery.of(context).size.width;
+    h = MediaQuery.of(context).size.height;
+
     return Container(
       color: darkColor,
       child: Center(
@@ -52,21 +58,24 @@ class _NamePageState extends State<NamePage> {
               child: Text(
                 "Hey, I'm",
                 style: TextStyle(
-                    fontFamily: "Caveat", color: Colors.white, fontSize: 36),
+                    fontFamily: "Caveat",
+                    color: Colors.white,
+                    fontSize: min(36, h * 0.034)),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 1000),
-                  width: sideLinesWidth,
-                  height: 3,
-                  color: Colors.white,
-                  curve: Curves.easeOut,
-                ),
+                if (b / 0.8 > h)
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 1000),
+                    width: sideLinesWidth,
+                    height: 3,
+                    color: Colors.white,
+                    curve: Curves.easeOut,
+                  ),
                 SizedBox(
-                  width: 20,
+                  width: b * 0.025,
                 ),
                 AnimatedOpacity(
                   opacity: nameOpacity,
@@ -76,19 +85,20 @@ class _NamePageState extends State<NamePage> {
                     style: TextStyle(
                         fontFamily: 'Poppins',
                         color: Colors.white,
-                        fontSize: 48),
+                        fontSize: min(48, h * 0.050)),
                   ),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: b * 0.025,
                 ),
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 1000),
-                  width: sideLinesWidth,
-                  height: 3,
-                  color: Colors.white,
-                  curve: Curves.easeOut,
-                ),
+                if (b / 0.8 > h)
+                  AnimatedContainer(
+                    duration: Duration(milliseconds: 1000),
+                    width: sideLinesWidth,
+                    height: 3,
+                    color: Colors.white,
+                    curve: Curves.easeOut,
+                  ),
               ],
             ),
             Spacer(),

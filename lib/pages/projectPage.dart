@@ -1,15 +1,24 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 
-class ProjectPage extends StatelessWidget {
+class ProjectPage extends StatefulWidget {
   const ProjectPage({Key? key}) : super(key: key);
+
+  @override
+  _ProjectPageState createState() => _ProjectPageState();
+}
+
+class _ProjectPageState extends State<ProjectPage> {
+  late double b, h;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
       color: darkColor,
       child: Stack(children: [
         Column(
@@ -70,7 +79,7 @@ class ProjectPage extends StatelessWidget {
             "Projects",
             style: TextStyle(
               color: Colors.white.withOpacity(0.1),
-              fontSize: 80,
+              fontSize: min(80, b * 0.14),
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
             ),
@@ -85,6 +94,9 @@ class ProjectPage extends StatelessWidget {
       @required String? title,
       @required String? des,
       @required String? link}) {
+    b = MediaQuery.of(context).size.width;
+    h = MediaQuery.of(context).size.height;
+
     return GestureDetector(
       onTap: () {
         launch(link!);
@@ -94,8 +106,8 @@ class ProjectPage extends StatelessWidget {
         shadowColor: selectColor,
         elevation: 0,
         child: Container(
-          width: 400,
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          width: b * 0.2,
+          margin: EdgeInsets.symmetric(horizontal: 15),
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           decoration: BoxDecoration(
             backgroundBlendMode: BlendMode.screen,
@@ -110,31 +122,30 @@ class ProjectPage extends StatelessWidget {
             children: [
               Image.asset(
                 image!,
-                height: 200,
-                width: 200,
+                width: b * 0.09,
               ),
               Row(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title!,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
+                  SizedBox(
+                    width: b * 0.17,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title!,
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500),
                         ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        height: 20,
-                        child: Text(
+                        Text(
                           des!,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      )
-                    ],
+                          style:
+                              TextStyle(color: Colors.white.withOpacity(0.6)),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +15,9 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
+    var b = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+
     return Container(
       alignment: Alignment.center,
       color: darkColor,
@@ -25,18 +30,18 @@ class _ContactPageState extends State<ContactPage> {
                 "Don't be Shy",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 45,
+                    fontSize: min(45, h * 0.05),
                     fontWeight: FontWeight.bold),
               ),
               Text(
                 "say Hi !!!",
                 style: TextStyle(
                     color: Colors.white.withOpacity(0.5),
-                    fontSize: 30,
+                    fontSize: min(30, h * 0.035),
                     fontWeight: FontWeight.w500),
               ),
               SizedBox(
-                height: 20,
+                height: h * 0.01,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +50,7 @@ class _ContactPageState extends State<ContactPage> {
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     decoration: BoxDecoration(
                         color: Color(0xff242323),
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(15)),
                     child: Column(
                       children: [
                         Text(
@@ -90,7 +95,7 @@ class _ContactPageState extends State<ContactPage> {
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 25,
                         ),
                         Row(
                           children: [
@@ -101,11 +106,11 @@ class _ContactPageState extends State<ContactPage> {
                               },
                               child: Image.asset(
                                 'assets/images/instagram-colour.png',
-                                width: 50,
+                                width: min(50, b * 0.07),
                               ),
                             ).showCursor.zoomInOnHoverSmall,
                             SizedBox(
-                              width: 15,
+                              width: min(15, b * 0.02),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -113,11 +118,11 @@ class _ContactPageState extends State<ContactPage> {
                               },
                               child: Image.asset(
                                 'assets/images/linkedin-colour.png',
-                                width: 50,
+                                width: min(50, b * 0.07),
                               ),
                             ).showCursor.zoomInOnHoverSmall,
                             SizedBox(
-                              width: 15,
+                              width: min(15, b * 0.02),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -125,7 +130,7 @@ class _ContactPageState extends State<ContactPage> {
                               },
                               child: Image.asset(
                                 'assets/images/twitter-colour.png',
-                                width: 50,
+                                width: min(50, b * 0.07),
                               ),
                             ).showCursor.zoomInOnHoverSmall
                           ],
@@ -143,7 +148,7 @@ class _ContactPageState extends State<ContactPage> {
               "Contact",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.1),
-                fontSize: 80,
+                fontSize: min(80, b * 0.14),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),

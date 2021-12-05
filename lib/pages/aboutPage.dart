@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
@@ -7,6 +9,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var b = MediaQuery.of(context).size.width;
+
     return Container(
       color: darkColor,
       child: Stack(
@@ -112,7 +116,7 @@ class AboutPage extends StatelessWidget {
               "About Me",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.1),
-                fontSize: 80,
+                fontSize: min(80, b * 0.14),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),

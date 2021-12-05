@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
@@ -14,6 +16,7 @@ class _EduPageState extends State<EduPage> {
   double schoolCardOpacity = 0;
   double collegeCardOpacity = 0;
   late double screenHeight;
+  late double screenWidth;
   @override
   void initState() {
     super.initState();
@@ -41,24 +44,24 @@ class _EduPageState extends State<EduPage> {
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
       color: darkColor,
       child: Stack(
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 100,
-              ),
-              AnimatedContainer(
-                curve: Curves.easeOut,
-                duration: Duration(milliseconds: 500),
-                width: circleRadius,
-                height: circleRadius,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-              ),
+              if (screenWidth > screenHeight)
+                AnimatedContainer(
+                  curve: Curves.easeOut,
+                  duration: Duration(milliseconds: 500),
+                  width: circleRadius,
+                  height: circleRadius,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.white),
+                ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -157,13 +160,14 @@ class _EduPageState extends State<EduPage> {
                       ],
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 2),
-                    height: midLineLength,
-                    width: 5,
-                    color: Colors.white,
-                    curve: Curves.decelerate,
-                  ),
+                  if (screenWidth > screenHeight)
+                    AnimatedContainer(
+                      duration: Duration(seconds: 2),
+                      height: midLineLength,
+                      width: 5,
+                      color: Colors.white,
+                      curve: Curves.decelerate,
+                    ),
                   Expanded(
                     child: Row(
                       children: [
@@ -173,7 +177,7 @@ class _EduPageState extends State<EduPage> {
                           child: Column(
                             children: [
                               SizedBox(
-                                height: 400,
+                                height: screenHeight * 0.4,
                               ),
                               Card(
                                 color: Colors.transparent,
@@ -261,7 +265,7 @@ class _EduPageState extends State<EduPage> {
               "Education",
               style: TextStyle(
                 color: Colors.white.withOpacity(0.1),
-                fontSize: 80,
+                fontSize: min(80, screenWidth * 0.14),
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
