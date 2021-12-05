@@ -55,138 +55,158 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 50),
+      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 0),
       color: darkColor,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
-          Row(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Spacer(
-                flex: 5,
-              ),
-              AnimatedContainer(
-                duration: Duration(seconds: 1),
-                width: 5,
-                height: sideLineHeight,
-                color: Colors.white,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FadeTransition(
-                    opacity: animation1,
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 1,
-                          child: Text(
-                            "Languages",
-                            style: TextStyle(
-                                color: selectColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        skillIcon('assets/images/c-icon.png', "C"),
-                        skillIcon('assets/images/cpp-icon.png', "C++"),
-                        skillIcon('assets/images/dart-icon.png', "Dart"),
-                        skillIcon('assets/images/java-icon.png', "Java"),
-                        skillIcon('assets/images/kotlin-icon.png', "Kotlin"),
-                      ],
-                    ),
+                  Spacer(
+                    flex: 5,
+                  ),
+                  AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    width: 5,
+                    height: sideLineHeight,
+                    color: Colors.white,
                   ),
                   SizedBox(
-                    height: 30,
+                    width: 20,
                   ),
-                  FadeTransition(
-                    opacity: animation2,
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 1,
-                          child: Text(
-                            "Frameworks/Technologies",
-                            style: TextStyle(
-                                color: selectColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500),
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FadeTransition(
+                        opacity: animation1,
+                        child: Row(
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 1,
+                              child: Text(
+                                "Languages",
+                                style: TextStyle(
+                                    color: selectColor,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            skillIcon('assets/images/c-icon.png', "C"),
+                            skillIcon('assets/images/cpp-icon.png', "C++"),
+                            skillIcon('assets/images/dart-icon.png', "Dart"),
+                            skillIcon('assets/images/java-icon.png', "Java"),
+                            skillIcon(
+                                'assets/images/kotlin-icon.png', "Kotlin"),
+                          ],
                         ),
-                        SizedBox(
-                          width: 20,
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeTransition(
+                        opacity: animation2,
+                        child: Row(
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 1,
+                              child: Text(
+                                "Frameworks/Technologies",
+                                style: TextStyle(
+                                    color: selectColor,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            skillIcon(
+                                'assets/images/flutter-icon.png', "Flutter"),
+                            skillIcon(
+                                'assets/images/android-icon.png', "Android"),
+                            skillIcon(
+                                'assets/images/nodejs-icon.png', "Node JS"),
+                          ],
                         ),
-                        skillIcon('assets/images/flutter-icon.png', "Flutter"),
-                        skillIcon('assets/images/android-icon.png', "Android"),
-                        skillIcon('assets/images/nodejs-icon.png', "Node JS"),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeTransition(
+                        opacity: animation3,
+                        child: Row(
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 1,
+                              child: Text(
+                                "Databases",
+                                style: TextStyle(
+                                    color: selectColor,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            skillIcon('assets/images/sql-icon.png', "SQL"),
+                            skillIcon('assets/images/hive-icon.png', "HiveDB"),
+                            skillIcon('assets/images/roomdb-icon.png', "Room"),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      FadeTransition(
+                        opacity: animation4,
+                        child: Row(
+                          children: [
+                            RotatedBox(
+                              quarterTurns: 1,
+                              child: Text(
+                                "Misc.",
+                                style: TextStyle(
+                                    color: selectColor,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            skillIcon(
+                                'assets/images/firebase-icon.png', "Firebase"),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  FadeTransition(
-                    opacity: animation3,
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 1,
-                          child: Text(
-                            "Databases",
-                            style: TextStyle(
-                                color: selectColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        skillIcon('assets/images/sql-icon.png', "SQL"),
-                        skillIcon('assets/images/hive-icon.png', "HiveDB"),
-                        skillIcon('assets/images/roomdb-icon.png', "Room"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  FadeTransition(
-                    opacity: animation4,
-                    child: Row(
-                      children: [
-                        RotatedBox(
-                          quarterTurns: 1,
-                          child: Text(
-                            "Misc.",
-                            style: TextStyle(
-                                color: selectColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        skillIcon(
-                            'assets/images/firebase-icon.png', "Firebase"),
-                      ],
-                    ),
+                  Spacer(
+                    flex: 7,
                   )
                 ],
-              ),
-              Spacer(
-                flex: 7,
               )
             ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "Skills",
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.1),
+                fontSize: 80,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           )
         ],
       ),

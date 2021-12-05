@@ -17,7 +17,6 @@ class _ZoomEffectState extends State<ZoomEffect> {
 
   @override
   void initState() {
-    // TODO: implement initState
     hoverTransform = Matrix4.identity()..scale(widget.zoomScale);
     super.initState();
   }

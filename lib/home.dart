@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/home_page.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
+import 'package:my_portfolio/pages/contactPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/pages/projectPage.dart';
@@ -129,18 +130,24 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               EduPage(),
               ProjectPage(),
               SkillPage(),
-              AboutPage(),
+              ContactPage(),
             ],
           ),
           AnimatedOpacity(
             curve: Curves.easeOut,
             duration: Duration(milliseconds: 1000),
             opacity: swipeOpacity,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Lottie.asset(
-                'assets/anim/swipe.json',
-                width: 100,
+            child: GestureDetector(
+              onTap: () {
+                controller.animateToPage(1,
+                    duration: Duration(seconds: 1), curve: Curves.ease);
+              },
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Lottie.asset(
+                  'assets/anim/swipe.json',
+                  width: 100,
+                ),
               ),
             ),
           ),

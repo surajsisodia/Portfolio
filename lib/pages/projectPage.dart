@@ -9,59 +9,74 @@ class ProjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 50),
+      padding: EdgeInsets.symmetric(horizontal: 100, vertical: 0),
       color: darkColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              projectCard(
-                  image: 'assets/images/glowcal.png',
-                  title: "GlowCal",
-                  des:
-                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                  link:
-                      'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
-              projectCard(
-                  image: 'assets/images/askthrifty.png',
-                  title: "AskThrifty",
-                  des:
-                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                  link: "www.google.com"),
-              projectCard(
-                  image: 'assets/images/co.png',
-                  title: "ConJoin",
-                  des:
-                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                  link: 'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
-            ],
+      child: Stack(children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                projectCard(
+                    image: 'assets/images/glowcal.png',
+                    title: "GlowCal",
+                    des:
+                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                    link:
+                        'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
+                projectCard(
+                    image: 'assets/images/askthrifty.png',
+                    title: "AskThrifty",
+                    des:
+                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                    link: "www.google.com"),
+                projectCard(
+                    image: 'assets/images/co.png',
+                    title: "ConJoin",
+                    des:
+                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                    link:
+                        'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                projectCard(
+                    image: 'assets/images/saidiera.png',
+                    title: "Saidiera Supermercado",
+                    des:
+                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                    link:
+                        'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
+                projectCard(
+                    image: 'assets/images/jag.png',
+                    title: "JagCab",
+                    des:
+                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                    link: "www.google.com"),
+              ],
+            )
+          ],
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Text(
+            "Projects",
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.1),
+              fontSize: 80,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              projectCard(
-                  image: 'assets/images/saidiera.png',
-                  title: "Saidiera Supermercado",
-                  des:
-                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                  link:
-                      'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
-              projectCard(
-                  image: 'assets/images/jag.png',
-                  title: "JagCab",
-                  des:
-                      "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                  link: "www.google.com"),
-            ],
-          )
-        ],
-      ),
+        )
+      ]),
     );
   }
 
