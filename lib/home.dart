@@ -10,6 +10,7 @@ import 'package:my_portfolio/pages/projectPage.dart';
 import 'package:my_portfolio/pages/skillPage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
+import 'package:my_portfolio/utils/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               shadowColor: Colors.transparent,
               elevation: 0,
               actions: [
-                if (b / 0.9 > h)
+                if (ResponsiveWidget.isLargeScreen(context))
                   SizedBox(
                     width: 700,
                     child: TabBar(
@@ -121,6 +122,71 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ],
             ),
       extendBodyBehindAppBar: true,
+      drawer: ResponsiveWidget.isLargeScreen(context)
+          ? null
+          : Drawer(
+              backgroundColor: darkColor,
+              child: ListView(
+                children: [
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                    ),
+                    title: Text("Home",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.person,
+                    ),
+                    title: Text('About',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.book,
+                    ),
+                    title: Text('Education',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.work,
+                    ),
+                    title: Text("Projects",
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text('Skills',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: Text('Contact',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            color: Colors.white)),
+                  ),
+                ],
+              ),
+            ),
       backgroundColor: darkColor,
       body: Stack(
         children: [

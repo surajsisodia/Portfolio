@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Suraj Sisodia',
         theme: ThemeData(
+            brightness: Brightness.dark,
             primarySwatch: Colors.blue,
             textTheme: TextTheme(
                 headline1: txtStl,
