@@ -126,64 +126,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ? null
           : Drawer(
               backgroundColor: darkColor,
-              child: ListView(
+              child: Column(
                 children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.home,
-                    ),
-                    title: Text("Home",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
+                  SizedBox(
+                    height: 20,
                   ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.person,
-                    ),
-                    title: Text('About',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.book,
-                    ),
-                    title: Text('Education',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.work,
-                    ),
-                    title: Text("Projects",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text('Skills',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.email),
-                    title: Text('Contact',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Colors.white)),
-                  ),
+                  drawerItem("Home", 0, Icons.home),
+                  drawerItem("About", 1, Icons.person),
+                  drawerItem("Education", 2, Icons.book),
+                  drawerItem("Projects", 3, Icons.work),
+                  drawerItem("Skills", 4, Icons.settings),
+                  drawerItem("Contacts", 5, Icons.email),
+                  Spacer(),
+                  Text('Made with \u2665\nby Hustler',
+                      textAlign: TextAlign.center),
+                  SizedBox(height: 10)
                 ],
               ),
             ),
@@ -282,6 +239,30 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ),
             )
         ],
+      ),
+    );
+  }
+
+  drawerItem(String label, double pageNo, IconData icon) {
+    return InkWell(
+      onTap: () {
+        controller.animateToPage(pageNo.floor(),
+            duration: Duration(milliseconds: 500), curve: Curves.easeOut);
+        Navigator.of(context).pop();
+      },
+      child: ListTile(
+        selectedColor: selectColor,
+        selected: !controller.hasClients
+            ? false
+            : (controller.page! < (pageNo + 1)) && (controller.page! >= pageNo),
+        leading: Icon(
+          icon,
+        ),
+        title: Text(label,
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 16,
+            )),
       ),
     );
   }
