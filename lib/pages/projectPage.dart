@@ -17,16 +17,21 @@ class _ProjectPageState extends State<ProjectPage> {
 
   @override
   Widget build(BuildContext context) {
+    b = MediaQuery.of(context).size.width;
+    h = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 0),
+      padding: EdgeInsets.only(top: 30),
       color: darkColor,
       child: Stack(children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        Center(
+          child: SingleChildScrollView(
+            child: Wrap(
+              spacing: b * 0.02,
+              runSpacing: h * 0.05,
+              runAlignment: WrapAlignment.center,
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 projectCard(
                     image: 'assets/images/glowcal.png',
@@ -48,14 +53,6 @@ class _ProjectPageState extends State<ProjectPage> {
                         "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
                     link:
                         'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
-              ],
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
                 projectCard(
                     image: 'assets/images/saidiera.png',
                     title: "Saidiera Supermercado",
@@ -70,8 +67,8 @@ class _ProjectPageState extends State<ProjectPage> {
                         "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
                     link: "www.google.com"),
               ],
-            )
-          ],
+            ),
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -106,7 +103,7 @@ class _ProjectPageState extends State<ProjectPage> {
         shadowColor: selectColor,
         elevation: 0,
         child: Container(
-          width: b * 0.2,
+          width: h * 0.36,
           margin: EdgeInsets.symmetric(horizontal: 15),
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           decoration: BoxDecoration(
@@ -122,12 +119,12 @@ class _ProjectPageState extends State<ProjectPage> {
             children: [
               Image.asset(
                 image!,
-                width: b * 0.09,
+                width: h * 0.18,
               ),
               Row(
                 children: [
-                  SizedBox(
-                    width: b * 0.17,
+                  Expanded(
+                    // width: b * 0.17,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
