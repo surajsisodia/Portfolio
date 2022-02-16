@@ -20,14 +20,16 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with TickerProviderStateMixin {
-  PageController controller = PageController(keepPage: true);
+PageController controller = PageController(keepPage: true);
 
+class _HomeState extends State<Home> with TickerProviderStateMixin {
   bool showAppBar = false;
   bool showSwipe = true;
   late AnimationController animationController;
   late TabController tabController;
   double swipeOpacity = 0;
+
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -71,6 +73,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     var h = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: !showAppBar
           ? null
           : AppBar(
@@ -137,10 +140,41 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   drawerItem("Projects", 3, Icons.work),
                   drawerItem("Skills", 4, Icons.settings),
                   drawerItem("Contacts", 5, Icons.email),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 1,
+                    color: Colors.white.withOpacity(0.1),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text("Follow me at"),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    child: Align(
+                        alignment: Alignment.center, child: SocialHandles()),
+                  ),
                   Spacer(),
-                  Text('Made with \u2665\nby Hustler',
-                      textAlign: TextAlign.center),
-                  SizedBox(height: 10)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Baseline(
+                          baseline: 36,
+                          baselineType: TextBaseline.alphabetic,
+                          child: Text('Made with \u2665\n',
+                              textAlign: TextAlign.center)),
+                      Text(' using '),
+                      Image.asset(
+                        'assets/images/flutter-icon.png',
+                        width: 16,
+                      )
+                    ],
+                  ),
+                  // Text("by Hustler"),
+                  //SizedBox(height: 10)
                 ],
               ),
             ),
@@ -184,57 +218,20 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.all(min(15, b * 0.05)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () async {
-                        await launch(
-                            'https://www.instagram.com/the.hustler___/');
-                      },
-                      child: Image.asset(
-                        'assets/images/instagram.png',
-                        width: h * 0.02,
-                      ),
-                    ).showCursor.zoomInOnHover,
-                    SizedBox(
-                      width: h * 0.02,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        await launch('https://www.linkedin.com/in/ss26/');
-                      },
-                      child: Image.asset(
-                        'assets/images/linkedin.png',
-                        width: h * 0.02,
-                      ),
-                    ).showCursor.zoomInOnHover,
-                    SizedBox(
-                      width: h * 0.02,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        await launch('https://github.com/surajsisodia');
-                      },
-                      child: Image.asset(
-                        'assets/images/github.png',
-                        width: h * 0.02,
-                      ),
-                    ).showCursor.zoomInOnHover,
-                    SizedBox(
-                      width: h * 0.02,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        await launch('https://twitter.com/marcos_suraj');
-                      },
-                      child: Image.asset(
-                        'assets/images/twitter.png',
-                        width: h * 0.02,
-                      ),
-                    ).showCursor.zoomInOnHover,
-                  ],
+                  padding: EdgeInsets.all(min(15, b * 0.05)),
+                  child: SocialHandles()),
+            ),
+          if (ResponsiveWidget.isSmallScreen(context))
+            InkWell(
+              onTap: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: b * 0.04, vertical: b * 0.04),
+                child: Image.asset(
+                  'assets/images/menu.png',
+                  width: b * 0.05,
                 ),
               ),
             )
@@ -264,6 +261,67 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               fontSize: 16,
             )),
       ),
+    );
+  }
+}
+
+class SocialHandles extends StatelessWidget {
+  const SocialHandles({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var b = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
+    return Row(
+      // mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GestureDetector(
+          onTap: () async {
+            await launch('https://www.instagram.com/the.hustler___/');
+          },
+          child: Image.asset(
+            'assets/images/instagram.png',
+            width: h * 0.02,
+          ),
+        ).showCursor.zoomInOnHover,
+        SizedBox(
+          width: h * 0.02,
+        ),
+        GestureDetector(
+          onTap: () async {
+            await launch('https://www.linkedin.com/in/ss26/');
+          },
+          child: Image.asset(
+            'assets/images/linkedin.png',
+            width: h * 0.02,
+          ),
+        ).showCursor.zoomInOnHover,
+        SizedBox(
+          width: h * 0.02,
+        ),
+        GestureDetector(
+          onTap: () async {
+            await launch('https://github.com/surajsisodia');
+          },
+          child: Image.asset(
+            'assets/images/github.png',
+            width: h * 0.02,
+          ),
+        ).showCursor.zoomInOnHover,
+        SizedBox(
+          width: h * 0.02,
+        ),
+        GestureDetector(
+          onTap: () async {
+            await launch('https://twitter.com/marcos_suraj');
+          },
+          child: Image.asset(
+            'assets/images/twitter.png',
+            width: h * 0.02,
+          ),
+        ).showCursor.zoomInOnHover,
+      ],
     );
   }
 }

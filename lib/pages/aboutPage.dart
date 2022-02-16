@@ -2,16 +2,36 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
 
-class AboutPage extends StatelessWidget {
+class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
+
+  @override
+  State<AboutPage> createState() => _AboutPageState();
+}
+
+class _AboutPageState extends State<AboutPage> {
+  double profileRadius = 0;
+  double h = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    controller.addListener(() {
+      if (controller.page! <= 1)
+        profileRadius = (controller.page!) * h * 0.3;
+      else
+        profileRadius = (2 - controller.page!) * h * 0.3;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     var b = MediaQuery.of(context).size.width;
-    var h = MediaQuery.of(context).size.height;
+    h = MediaQuery.of(context).size.height;
 
     return ResponsiveWidget(
       largeScreen: Container(
@@ -24,7 +44,9 @@ class AboutPage extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: ProfileImageContainer(),
+                    child: ProfileImageContainer(
+                      radius: profileRadius,
+                    ),
                   ),
                   Expanded(
                     flex: 1,
@@ -150,7 +172,9 @@ class AboutPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ProfileImageContainer(),
+                    ProfileImageContainer(
+                      radius: profileRadius,
+                    ),
                     SizedBox(
                       height: 30,
                     ),
@@ -269,15 +293,15 @@ class AboutPage extends StatelessWidget {
 }
 
 class ProfileImageContainer extends StatelessWidget {
-  const ProfileImageContainer({Key? key}) : super(key: key);
-
+  ProfileImageContainer({Key? key, required this.radius}) : super(key: key);
+  final double radius;
   @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-
-    return Container(
-      height: h * 0.3,
-      width: h * 0.3,
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 100),
+      curve: Curves.easeOut,
+      height: radius,
+      width: radius,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: selectColor,
