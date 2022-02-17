@@ -207,10 +207,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               },
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: Lottie.asset(
-                  'assets/anim/swipe.json',
-                  width: 100,
-                ),
+                child:
+                    // Image.asset(
+                    //   'assets/anim/sw.gif',
+                    //   width: 100,
+                    // )
+                    Lottie.asset('assets/anim/swipe.json',
+                        width: 100,
+                        frameRate: FrameRate.max,
+                        fit: BoxFit.contain),
               ),
             ),
           ),
@@ -242,10 +247,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   drawerItem(String label, double pageNo, IconData icon) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
+        Navigator.of(context).pop();
+        await Future.delayed(Duration(seconds: 1));
         controller.animateToPage(pageNo.floor(),
             duration: Duration(milliseconds: 500), curve: Curves.easeOut);
-        Navigator.of(context).pop();
       },
       child: ListTile(
         selectedColor: selectColor,

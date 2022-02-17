@@ -1,11 +1,11 @@
 {
     "name": "Suraj Sisodia",
-    "short_name": "my_portfolio",
+    "short_name": "Suraj Sisodia",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#1B1B1B",
+    "theme_color": "#1B1B1B",
+    "description": "Portfolio web app of Suraj Sisodia",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

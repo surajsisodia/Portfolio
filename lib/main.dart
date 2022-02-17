@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         title: 'Suraj Sisodia',
         theme: ThemeData(
             brightness: Brightness.dark,
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.red,
             textTheme: TextTheme(
                 headline1: txtStl,
                 headline2: txtStl,

@@ -31,7 +31,7 @@ class _EduPageState extends State<EduPage> {
     controller.addListener(() {
       schoolCardLeftPos = (controller.page! - 1.9) * screenWidth;
       collegeCardRightPos = (controller.page! - 1.9) * screenWidth;
-      if (mounted) setState(() {});
+      // if (mounted) setState(() {});
     });
   }
 
@@ -221,7 +221,7 @@ class _EduPageState extends State<EduPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RotatedBox(
-                    quarterTurns: 1,
+                    quarterTurns: 3,
                     child: Text(
                       "2019 - Present",
                       style: TextStyle(
