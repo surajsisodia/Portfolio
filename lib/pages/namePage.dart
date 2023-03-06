@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
 class NamePage extends StatefulWidget {
@@ -57,10 +58,8 @@ class _NamePageState extends State<NamePage> {
               duration: Duration(milliseconds: 1000),
               child: Text(
                 "Hey, I'm",
-                style: TextStyle(
-                    fontFamily: "Caveat",
-                    color: Colors.white,
-                    fontSize: min(36, h * 0.034)),
+                style: GoogleFonts.caveat(
+                    color: Colors.white, fontSize: min(36, h * 0.034)),
               ),
             ),
             Row(
@@ -82,10 +81,8 @@ class _NamePageState extends State<NamePage> {
                   duration: Duration(milliseconds: 1500),
                   child: Text(
                     "Suraj Sisodia",
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: min(48, h * 0.050)),
+                    style: GoogleFonts.poppins(
+                        color: Colors.white, fontSize: min(48, h * 0.050)),
                   ),
                 ),
                 SizedBox(

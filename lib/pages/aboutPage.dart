@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
@@ -57,14 +58,11 @@ class _AboutPageState extends State<AboutPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              "I'm ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w300),
-                            ),
+                            Text("I'm ",
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: h * 0.024,
+                                    fontWeight: FontWeight.w300)),
                             AnimatedTextKit(
                               repeatForever: true,
                               animatedTexts: [
@@ -72,44 +70,40 @@ class _AboutPageState extends State<AboutPage> {
                                   "a App Developer \u{1f4f1}",
                                   curve: Curves.ease,
                                   speed: Duration(milliseconds: 100),
-                                  textStyle: TextStyle(
+                                  textStyle: GoogleFonts.poppins(
                                     color: selectColor,
                                     fontWeight: FontWeight.w500,
                                     fontSize: h * 0.024,
-                                    fontFamily: "Poppins",
                                   ),
                                 ),
                                 TypewriterAnimatedText(
                                   "a Linux Operator \u{1f4bb}",
                                   curve: Curves.ease,
                                   speed: Duration(milliseconds: 100),
-                                  textStyle: TextStyle(
+                                  textStyle: GoogleFonts.poppins(
                                     color: selectColor,
                                     fontWeight: FontWeight.w500,
                                     fontSize: h * 0.024,
-                                    fontFamily: "Poppins",
                                   ),
                                 ),
                                 TypewriterAnimatedText(
                                   "an Athlete \u{1f6b4}",
                                   curve: Curves.ease,
                                   speed: Duration(milliseconds: 100),
-                                  textStyle: TextStyle(
+                                  textStyle: GoogleFonts.poppins(
                                     color: selectColor,
                                     fontWeight: FontWeight.w500,
                                     fontSize: h * 0.024,
-                                    fontFamily: "Poppins",
                                   ),
                                 ),
                                 TypewriterAnimatedText(
                                   "an Indian 🇮🇳",
                                   curve: Curves.ease,
                                   speed: Duration(milliseconds: 100),
-                                  textStyle: TextStyle(
+                                  textStyle: GoogleFonts.poppins(
                                     color: selectColor,
                                     fontWeight: FontWeight.w500,
                                     fontSize: h * 0.024,
-                                    fontFamily: "Poppins",
                                   ),
                                 ),
                               ],
@@ -123,8 +117,7 @@ class _AboutPageState extends State<AboutPage> {
                               textAlign: TextAlign.start,
                               text: TextSpan(
                                 text: "Hey Visitor 👋, I'm ",
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
+                                style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w300,
                                     fontSize: h * 0.018),
@@ -150,15 +143,12 @@ class _AboutPageState extends State<AboutPage> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Text(
-                "About Me",
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.1),
-                  fontSize: min(80, b * 0.14),
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              child: Text("About Me",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.white.withOpacity(0.1),
+                    fontSize: min(80, b * 0.14),
+                    fontWeight: FontWeight.bold,
+                  )),
             )
           ],
         ),
@@ -182,15 +172,11 @@ class _AboutPageState extends State<AboutPage> {
                       width: b * 0.45,
                       child: Row(
                         children: [
-                          // SizedBox(
-                          //   width: b * 0.30,
-                          // ),
                           Text(
                             "I'm ",
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: h * 0.024,
-                                fontFamily: "Poppins",
                                 fontWeight: FontWeight.w300),
                           ),
                           AnimatedTextKit(
@@ -200,44 +186,40 @@ class _AboutPageState extends State<AboutPage> {
                                 "a App Developer \u{1f4f1}",
                                 curve: Curves.ease,
                                 speed: Duration(milliseconds: 100),
-                                textStyle: TextStyle(
+                                textStyle: GoogleFonts.poppins(
                                   color: selectColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: h * 0.024,
-                                  fontFamily: "Poppins",
                                 ),
                               ),
                               TypewriterAnimatedText(
                                 "a Linux Operator \u{1f4bb}",
                                 curve: Curves.ease,
                                 speed: Duration(milliseconds: 100),
-                                textStyle: TextStyle(
+                                textStyle: GoogleFonts.poppins(
                                   color: selectColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: h * 0.024,
-                                  fontFamily: "Poppins",
                                 ),
                               ),
                               TypewriterAnimatedText(
                                 "an Athlete \u{1f6b4}",
                                 curve: Curves.ease,
                                 speed: Duration(milliseconds: 100),
-                                textStyle: TextStyle(
+                                textStyle: GoogleFonts.poppins(
                                   color: selectColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: h * 0.024,
-                                  fontFamily: "Poppins",
                                 ),
                               ),
                               TypewriterAnimatedText(
                                 "an Indian 🇮🇳",
                                 curve: Curves.ease,
                                 speed: Duration(milliseconds: 100),
-                                textStyle: TextStyle(
+                                textStyle: GoogleFonts.poppins(
                                   color: selectColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: h * 0.024,
-                                  fontFamily: "Poppins",
                                 ),
                               ),
                             ],
@@ -252,8 +234,7 @@ class _AboutPageState extends State<AboutPage> {
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             text: "Hey Visitor 👋, I'm ",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
+                            style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w300,
                                 fontSize: h * 0.018),
@@ -278,10 +259,9 @@ class _AboutPageState extends State<AboutPage> {
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   "About Me",
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     color: Colors.white.withOpacity(0.1),
                     fontSize: min(80, b * 0.14),
-                    fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -306,10 +286,11 @@ class ProfileImageContainer extends StatelessWidget {
         shape: BoxShape.circle,
         color: selectColor,
         image: DecorationImage(
-          fit: BoxFit.contain,
-          scale: 1,
-          image: AssetImage('assets/images/aboutImg.jpg'),
-        ),
+            fit: BoxFit.contain,
+            scale: 1,
+            image: NetworkImage(
+              "https://firebasestorage.googleapis.com/v0/b/thehustlerdev.appspot.com/o/aboutImg.jpg?alt=media&token=02ecfd82-914b-4c57-9ccd-4af7cf483567",
+            )),
       ),
     );
   }

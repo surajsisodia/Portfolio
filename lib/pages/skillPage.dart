@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
 class SkillPage extends StatefulWidget {
@@ -207,10 +208,9 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
             alignment: Alignment.bottomCenter,
             child: Text(
               "Skills",
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 color: Colors.white.withOpacity(0.1),
                 fontSize: min(80, b * 0.14),
-                fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
             ),

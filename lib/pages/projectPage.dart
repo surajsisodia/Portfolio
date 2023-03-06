@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
@@ -74,10 +75,9 @@ class _ProjectPageState extends State<ProjectPage> {
           alignment: Alignment.bottomCenter,
           child: Text(
             "Projects",
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               color: Colors.white.withOpacity(0.1),
               fontSize: min(80, b * 0.14),
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
             ),
           ),

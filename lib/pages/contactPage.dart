@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
@@ -147,10 +148,9 @@ class _ContactPageState extends State<ContactPage> {
             alignment: Alignment.bottomCenter,
             child: Text(
               "Contact",
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 color: Colors.white.withOpacity(0.1),
                 fontSize: min(80, b * 0.14),
-                fontFamily: 'Montserrat',
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/home.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
@@ -105,9 +105,8 @@ class _EduPageState extends State<EduPage> {
                                       quarterTurns: 1,
                                       child: Text(
                                         "2015 - 2019",
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w700,
-                                            fontFamily: 'Poppins',
                                             color: selectColor,
                                             fontSize: 16),
                                       ),
@@ -151,9 +150,8 @@ class _EduPageState extends State<EduPage> {
                                       quarterTurns: 3,
                                       child: Text(
                                         "2019 - Present",
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w700,
-                                            fontFamily: 'Poppins',
                                             color: selectColor,
                                             fontSize: 16),
                                       ),
@@ -199,9 +197,8 @@ class _EduPageState extends State<EduPage> {
                     quarterTurns: 1,
                     child: Text(
                       "2015 - 2019",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins',
                           color: selectColor,
                           fontSize: 16),
                     ),
@@ -224,9 +221,8 @@ class _EduPageState extends State<EduPage> {
                     quarterTurns: 3,
                     child: Text(
                       "2019 - Present",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins',
                           color: selectColor,
                           fontSize: 16),
                     ),
@@ -250,10 +246,9 @@ class _EduPageState extends State<EduPage> {
       alignment: Alignment.bottomCenter,
       child: Text(
         "Education",
-        style: TextStyle(
+        style: GoogleFonts.montserrat(
           color: Colors.white.withOpacity(0.1),
           fontSize: min(80, screenWidth * 0.14),
-          fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -283,33 +278,30 @@ class _EduPageState extends State<EduPage> {
               children: [
                 Text(
                   "Indian Institute of Information Technology, Surat",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Colors.black,
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'Poppins',
                       fontSize: 16),
                 ),
                 Text(
                   "Bachelor of Technology",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins'),
+                  style: GoogleFonts.poppins(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Text(
                   "Electronics & Communication Engineering",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Colors.black87,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
                       fontStyle: FontStyle.italic),
                 ),
                 Text(
-                  "CGPA : 8.96",
-                  style: TextStyle(
+                  "CGPA : 8.59",
+                  style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'Poppins',
                   ),
                 )
               ],
@@ -343,33 +335,30 @@ class _EduPageState extends State<EduPage> {
               children: [
                 Text(
                   "MPSM Grace Convent Sr. Sec. School, Mathura",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Colors.black,
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'Poppins',
                       fontSize: 16),
                 ),
                 Text(
                   "HSC & SSC",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins'),
+                  style: GoogleFonts.poppins(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Text(
                   "Non-Medical + Computer Science (C++)",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Colors.black87,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Poppins',
                       fontStyle: FontStyle.italic),
                 ),
                 Text(
                   "89%",
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
-                    fontFamily: 'Poppins',
                   ),
                 )
               ],

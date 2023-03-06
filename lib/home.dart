@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/pages/aboutPage.dart';
 import 'package:my_portfolio/pages/contactPage.dart';
 import 'package:my_portfolio/pages/eduPage.dart';
@@ -11,6 +10,7 @@ import 'package:my_portfolio/pages/skillPage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
+import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -72,6 +72,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     var b = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
 
+    final theme = Theme.of(context);
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: !showAppBar
@@ -88,24 +90,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     child: TabBar(
                       controller: tabController,
                       tabs: [
-                        Text("Home",
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                        Text('About',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                        Text('Education',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                        Text("Projects",
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                        Text('Skills',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
-                        Text('Contact',
-                            style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 16)),
+                        Text("Home", style: theme.textTheme.bodyText1!),
+                        Text('About', style: theme.textTheme.bodyText1!),
+                        Text('Education', style: theme.textTheme.bodyText1!),
+                        Text("Projects", style: theme.textTheme.bodyText1!),
+                        Text('Skills', style: theme.textTheme.bodyText1!),
+                        Text('Contact', style: theme.textTheme.bodyText1!),
                       ],
                       unselectedLabelColor: Colors.white,
                       labelColor: Colors.white,
@@ -206,17 +196,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     duration: Duration(seconds: 1), curve: Curves.ease);
               },
               child: Align(
-                alignment: Alignment.bottomCenter,
-                child:
-                    // Image.asset(
-                    //   'assets/anim/sw.gif',
-                    //   width: 100,
-                    // )
-                    Lottie.asset('assets/anim/swipe.json',
-                        width: 100,
-                        frameRate: FrameRate.max,
-                        fit: BoxFit.contain),
-              ),
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: RiveAnimation.asset(
+                      'assets/anim/upward_anim.riv',
+                      // artboard: "New Artboard",
+                    ),
+                  )),
             ),
           ),
           if (b / 0.7 > h)
@@ -246,6 +234,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   drawerItem(String label, double pageNo, IconData icon) {
+    final theme = Theme.of(context).textTheme;
     return InkWell(
       onTap: () async {
         Navigator.of(context).pop();
@@ -261,11 +250,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         leading: Icon(
           icon,
         ),
-        title: Text(label,
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 16,
-            )),
+        title: Text(label, style: theme.bodyText1),
       ),
     );
   }
