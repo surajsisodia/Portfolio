@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/extensions/flip_effect.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
 class NamePage extends StatefulWidget {
@@ -11,7 +12,8 @@ class NamePage extends StatefulWidget {
   _NamePageState createState() => _NamePageState();
 }
 
-class _NamePageState extends State<NamePage> {
+class _NamePageState extends State<NamePage>
+    with AutomaticKeepAliveClientMixin {
   double sideLinesWidth = 0;
   double heyOpacity = 0, nameOpacity = 0;
   late double b, h;
@@ -41,7 +43,11 @@ class _NamePageState extends State<NamePage> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     b = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
 
@@ -99,13 +105,7 @@ class _NamePageState extends State<NamePage> {
               ],
             ),
             Spacer(),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Image.asset(
-            //     'assets/anim/swipeAnim.gif',
-            //     width: 100,
-            //   ),
-            // )
+            // FlipEffectWidget()
           ],
         ),
       ),

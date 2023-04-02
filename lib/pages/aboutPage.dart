@@ -272,25 +272,48 @@ class _AboutPageState extends State<AboutPage> {
   }
 }
 
-class ProfileImageContainer extends StatelessWidget {
+class ProfileImageContainer extends StatefulWidget {
   ProfileImageContainer({Key? key, required this.radius}) : super(key: key);
   final double radius;
+
+  @override
+  State<ProfileImageContainer> createState() => _ProfileImageContainerState();
+}
+
+class _ProfileImageContainerState extends State<ProfileImageContainer> {
+  var shadow;
+
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 100),
-      curve: Curves.easeOut,
-      height: radius,
-      width: radius,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: selectColor,
-        image: DecorationImage(
-            fit: BoxFit.contain,
-            scale: 1,
-            image: NetworkImage(
-              "https://firebasestorage.googleapis.com/v0/b/thehustlerdev.appspot.com/o/aboutImg.jpg?alt=media&token=02ecfd82-914b-4c57-9ccd-4af7cf483567",
-            )),
+    return MouseRegion(
+      onEnter: (event) {
+        shadow = BoxShadow(
+          color: selectColor,
+          blurRadius: 40,
+          spreadRadius: 10,
+        );
+        setState(() {});
+      },
+      onExit: (event) {
+        shadow = null;
+        setState(() {});
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+        height: widget.radius,
+        width: widget.radius,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: selectColor,
+          boxShadow: shadow == null ? null : [shadow],
+          image: DecorationImage(
+              fit: BoxFit.contain,
+              scale: 1,
+              image: NetworkImage(
+                "https://firebasestorage.googleapis.com/v0/b/thehustlerdev.appspot.com/o/aboutImg.jpg?alt=media&token=02ecfd82-914b-4c57-9ccd-4af7cf483567",
+              )),
+        ),
       ),
     );
   }

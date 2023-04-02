@@ -11,7 +11,8 @@ class SkillPage extends StatefulWidget {
   _SkillPageState createState() => _SkillPageState();
 }
 
-class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
+class _SkillPageState extends State<SkillPage>
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late double b, h;
 
   double sideLineHeight = 0;
@@ -58,7 +59,11 @@ class _SkillPageState extends State<SkillPage> with TickerProviderStateMixin {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     b = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
 

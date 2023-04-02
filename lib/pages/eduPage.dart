@@ -13,7 +13,7 @@ class EduPage extends StatefulWidget {
   _EduPageState createState() => _EduPageState();
 }
 
-class _EduPageState extends State<EduPage> {
+class _EduPageState extends State<EduPage> with AutomaticKeepAliveClientMixin {
   double midLineLength = 0;
   double circleRadius = 0;
   double schoolCardOpacity = 0;
@@ -56,7 +56,10 @@ class _EduPageState extends State<EduPage> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     startAnimation();

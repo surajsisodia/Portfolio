@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
+import 'package:my_portfolio/utils/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 
@@ -20,55 +21,96 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     b = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
+    final isSmallScreen = ResponsiveWidget.isSmallScreen(context);
+
     return Container(
       padding: EdgeInsets.only(top: 30),
       color: darkColor,
       child: Stack(children: [
         Center(
           child: SingleChildScrollView(
-            child: Wrap(
-              spacing: b * 0.02,
-              runSpacing: h * 0.05,
-              runAlignment: WrapAlignment.center,
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                projectCard(
-                    image: 'assets/images/glowcal.png',
-                    title: "GlowCal",
-                    des:
-                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                    link:
-                        'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
-                projectCard(
-                    image: 'assets/images/askthrifty.png',
-                    title: "AskThrifty",
-                    des:
-                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                    link: "www.google.com"),
-                projectCard(
-                    image: 'assets/images/co.png',
-                    title: "ConJoin",
-                    des:
-                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                    link:
-                        'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
-                projectCard(
-                    image: 'assets/images/saidiera.png',
-                    title: "Saidiera Supermercado",
-                    des:
-                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                    link:
-                        'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
-                projectCard(
-                    image: 'assets/images/jag.png',
-                    title: "JagCab",
-                    des:
-                        "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                    link: "www.google.com"),
-              ],
-            ),
+            scrollDirection: isSmallScreen ? Axis.horizontal : Axis.horizontal,
+            child: isSmallScreen
+                ? Row(
+                    children: [
+                      projectCard(
+                          image: 'assets/images/glowcal.png',
+                          title: "GlowCal",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
+                      projectCard(
+                          image: 'assets/images/askthrifty.png',
+                          title: "AskThrifty",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link: "www.google.com"),
+                      projectCard(
+                          image: 'assets/images/co.png',
+                          title: "ConJoin",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
+                      projectCard(
+                          image: 'assets/images/saidiera.png',
+                          title: "Saidiera Supermercado",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
+                      projectCard(
+                          image: 'assets/images/jag.png',
+                          title: "JagCab",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link: "www.google.com"),
+                    ],
+                  )
+                : Wrap(
+                    spacing: b * 0.02,
+                    runSpacing: h * 0.05,
+                    runAlignment: WrapAlignment.center,
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      projectCard(
+                          image: 'assets/images/glowcal.png',
+                          title: "GlowCal",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
+                      projectCard(
+                          image: 'assets/images/askthrifty.png',
+                          title: "AskThrifty",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link: "www.google.com"),
+                      projectCard(
+                          image: 'assets/images/co.png',
+                          title: "ConJoin",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
+                      projectCard(
+                          image: 'assets/images/saidiera.png',
+                          title: "Saidiera Supermercado",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link:
+                              'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
+                      projectCard(
+                          image: 'assets/images/jag.png',
+                          title: "JagCab",
+                          des:
+                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
+                          link: "www.google.com"),
+                    ],
+                  ),
           ),
         ),
         Align(
@@ -98,56 +140,51 @@ class _ProjectPageState extends State<ProjectPage> {
       onTap: () {
         launch(link!);
       },
-      child: Card(
-        color: Colors.transparent,
-        shadowColor: selectColor,
-        elevation: 0,
-        child: Container(
-          width: h * 0.36,
-          margin: EdgeInsets.symmetric(horizontal: 15),
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-          decoration: BoxDecoration(
-            backgroundBlendMode: BlendMode.screen,
-            gradient: LinearGradient(
-                colors: [Colors.white, selectColor],
-                end: Alignment.bottomCenter,
-                begin: Alignment.topCenter),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                image!,
-                width: h * 0.18,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    // width: b * 0.17,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title!,
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Text(
-                          des!,
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.6)),
-                        )
-                      ],
-                    ),
+      child: Container(
+        constraints: BoxConstraints(maxHeight: h * 0.36),
+        width: h * 0.36,
+        margin: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        decoration: BoxDecoration(
+          backgroundBlendMode: BlendMode.screen,
+          gradient: LinearGradient(
+              colors: [Colors.white, selectColor],
+              end: Alignment.bottomCenter,
+              begin: Alignment.topCenter),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              image!,
+              width: h * 0.18,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  // width: b * 0.17,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title!,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        des!,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white.withOpacity(0.6)),
+                      )
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     ).showCursor.zoomInOnHoverSmall;
