@@ -28,12 +28,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   increaseVisitorCounter() async {
     try {
-      final response = await http.post(Uri.parse("http://ip-api.com/json"),
+      final response = await http.post(Uri.parse("https://ipapi.co/json"),
           headers: {'Content-Type': 'application/x-www-form-urlencoded'});
 
       var locationData;
       if (response.statusCode == 200) locationData = jsonDecode(response.body);
-      print(locationData);
+      // print(locationData);
 
       FirebaseFirestore.instance
           .collection('stats')
@@ -41,13 +41,14 @@ class _MyAppState extends State<MyApp> {
           .update({"counter": FieldValue.increment(1)});
 
       Map<String, dynamic> data = {
-        'country': locationData['country'],
+        'country': locationData['country_name'],
         'city': locationData['city'],
-        "lat": locationData['lat'],
-        'lon': locationData['lon'],
-        'ip': locationData['query'],
-        'isp': locationData['isp'],
-        'platfom': Platform.operatingSystemVersion
+        "lat": locationData['latitude'],
+        'lon': locationData['longitude'],
+        'ip': locationData['ip'],
+        'isp': locationData['org'],
+        'platform': Platform.operatingSystemVersion,
+        "visitedAt": FieldValue.serverTimestamp()
       };
 
       FirebaseFirestore.instance.collection('visitorDetail').add(data);
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // increaseVisitorCounter();
+    increaseVisitorCounter();
 
     super.initState();
   }

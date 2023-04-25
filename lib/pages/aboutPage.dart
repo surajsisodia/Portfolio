@@ -67,7 +67,7 @@ class _AboutPageState extends State<AboutPage> {
                               repeatForever: true,
                               animatedTexts: [
                                 TypewriterAnimatedText(
-                                  "a App Developer \u{1f4f1}",
+                                  "an App Developer \u{1f4f1}",
                                   curve: Curves.ease,
                                   speed: Duration(milliseconds: 100),
                                   textStyle: GoogleFonts.poppins(
@@ -130,7 +130,7 @@ class _AboutPageState extends State<AboutPage> {
                                   ),
                                   TextSpan(
                                     text:
-                                        "a enthusiast of mobile technologies and linux systems. I've a good experience in Flutter and Android. Currently digging the domains of Cyber Security and Machine Learning, and exploring its possibilities with mobile devices.\nVideo editing, sports & music listening are some other activities you'll find me engaged with.",
+                                        "an enthusiast of mobile technologies and linux systems. I've a good experience in Flutter and Android. Currently digging the domains of Cyber Security and Machine Learning, and exploring its possibilities with mobile devices.\nVideo editing, sports & music listening are some other activities you'll find me engaged with.",
                                   ),
                                 ],
                               ),
