@@ -7,6 +7,7 @@ import 'package:my_portfolio/pages/eduPage.dart';
 import 'package:my_portfolio/pages/namePage.dart';
 import 'package:my_portfolio/pages/projectPage.dart';
 import 'package:my_portfolio/pages/skillPage.dart';
+import 'package:my_portfolio/pages/workExPage.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
@@ -177,8 +178,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             onPageChanged: (page) {
               tabController.animateTo(page);
             },
-            children: [
-              NamePage(),
+            children: [ 
+               WorkExPage(),       // NamePage(),
               AboutPage(),
               EduPage(),
               ProjectPage(),
