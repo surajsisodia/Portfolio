@@ -11,9 +11,6 @@ import 'package:universal_io/io.dart';
 
 void main() async {
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await Firebase.initializeApp(
       options: FirebaseOptions(
           apiKey: fAPIKey,
           appId: fAppId,
