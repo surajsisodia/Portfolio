@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/extensions/flip_effect.dart';
 import 'package:my_portfolio/utils/colors.dart';
 
 class NamePage extends StatefulWidget {

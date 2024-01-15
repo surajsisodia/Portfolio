@@ -2,27 +2,23 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/home.dart';
-// import 'package:my_portfolio/utils/firebase_config.dart';
+import 'package:my_portfolio/utils/firebase_config.dart';
 import 'package:http/http.dart' as http;
 import 'package:universal_io/io.dart';
 
 void main() async {
-
-  //await Firebase.initializeApp(
-
-    // options: DefaultFirebaseOptions.currentPlatform,
-
-//);
-  // await Firebase.initializeApp(
-  //     options: FirebaseOptions(
-  //         apiKey: fAPIKey,
-  //         appId: fAppId,
-  //         messagingSenderId: fMessagingId,
-  //         projectId: fProjectId));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: fAPIKey,
+          appId: fAppId,
+          messagingSenderId: fMessagingId,
+          projectId: fProjectId));
   runApp(MyApp());
 }
 
@@ -65,8 +61,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: Uncomment below
-    //increaseVisitorCounter();
+    increaseVisitorCounter();
 
     super.initState();
   }

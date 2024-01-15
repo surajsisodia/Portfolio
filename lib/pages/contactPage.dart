@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -73,7 +74,8 @@ class _ContactPageState extends State<ContactPage> {
                             ),
                             InkWell(
                               onTap: () {
-                                launch('mailto:sisodiasuraj2000@gmail.com');
+                                launchUrl(Uri.parse(
+                                    'mailto:sisodiasuraj2000@gmail.com'));
                               },
                               child: Text(
                                 "sisodiasuraj2000@gmail.com",
@@ -103,7 +105,7 @@ class _ContactPageState extends State<ContactPage> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                launch(
+                                launchUrlString(
                                     'https://www.instagram.com/the.hustler___/');
                               },
                               child: Image.asset(
@@ -116,7 +118,8 @@ class _ContactPageState extends State<ContactPage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                launch('https://www.linkedin.com/in/ss26/');
+                                launchUrlString(
+                                    'https://www.linkedin.com/in/ss26/');
                               },
                               child: Image.asset(
                                 'assets/images/linkedin-colour.png',
@@ -128,7 +131,8 @@ class _ContactPageState extends State<ContactPage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                launch('https://twitter.com/marcos_suraj');
+                                launchUrlString(
+                                    'https://twitter.com/marcos_suraj');
                               },
                               child: Image.asset(
                                 'assets/images/twitter-colour.png',

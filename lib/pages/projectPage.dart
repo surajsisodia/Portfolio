@@ -6,6 +6,7 @@ import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProjectPage extends StatefulWidget {
   const ProjectPage({Key? key}) : super(key: key);
@@ -104,7 +105,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
     return GestureDetector(
       onTap: () {
-        launch(link!);
+        launchUrlString(link!);
       },
       child: Container(
         constraints: BoxConstraints(maxHeight: h * 0.36),
