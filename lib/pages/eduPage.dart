@@ -152,7 +152,7 @@ class _EduPageState extends State<EduPage> with AutomaticKeepAliveClientMixin {
                                     RotatedBox(
                                       quarterTurns: 3,
                                       child: Text(
-                                        "2019 - Present",
+                                        "2019 - 2023",
                                         style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w700,
                                             color: selectColor,
@@ -223,7 +223,7 @@ class _EduPageState extends State<EduPage> with AutomaticKeepAliveClientMixin {
                   RotatedBox(
                     quarterTurns: 3,
                     child: Text(
-                      "2019 - Present",
+                      "2019 - 2023",
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w700,
                           color: selectColor,
@@ -301,7 +301,7 @@ class _EduPageState extends State<EduPage> with AutomaticKeepAliveClientMixin {
                       fontStyle: FontStyle.italic),
                 ),
                 Text(
-                  "CGPA : 8.59",
+                  "CGPA : 8.79",
                   style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,

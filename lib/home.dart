@@ -12,7 +12,8 @@ import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
 import 'package:rive/rive.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     });
 
     animationController = AnimationController(vsync: this);
-    tabController = TabController(length: 6, vsync: this);
+    tabController = TabController(length: 7, vsync: this);
     startAnimation();
   }
 
@@ -80,28 +81,27 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       appBar: !showAppBar
           ? null
           : AppBar(
-              backgroundColor: Colors.transparent,
-              foregroundColor: Colors.transparent,
-              shadowColor: Colors.transparent,
+              backgroundColor: darkColor,
               elevation: 0,
+              scrolledUnderElevation: 10,
               actions: [
                 if (ResponsiveWidget.isLargeScreen(context))
                   SizedBox(
-                    width: 700,
+                    width: 870,
                     child: TabBar(
                       controller: tabController,
+                      dividerColor: Colors.transparent,
                       tabs: [
                         Text("Home", style: theme.textTheme.bodyText1!),
                         Text('About', style: theme.textTheme.bodyText1!),
                         Text('Education', style: theme.textTheme.bodyText1!),
+                        Text("Experience", style: theme.textTheme.bodyText1!),
                         Text("Projects", style: theme.textTheme.bodyText1!),
                         Text('Skills', style: theme.textTheme.bodyText1!),
                         Text('Contact', style: theme.textTheme.bodyText1!),
                       ],
                       unselectedLabelColor: Colors.white,
                       labelColor: Colors.white,
-                      indicatorPadding:
-                          EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                       indicatorSize: TabBarIndicatorSize.tab,
                       indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
@@ -128,9 +128,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   drawerItem("Home", 0, Icons.home),
                   drawerItem("About", 1, Icons.person),
                   drawerItem("Education", 2, Icons.book),
-                  drawerItem("Projects", 3, Icons.work),
-                  drawerItem("Skills", 4, Icons.settings),
-                  drawerItem("Contacts", 5, Icons.email),
+                  drawerItem("Experience", 3, Icons.work),
+                  drawerItem("Projects", 4, Icons.web),
+                  drawerItem("Skills", 5, Icons.settings),
+                  drawerItem("Contacts", 6, Icons.email),
                   SizedBox(
                     height: 20,
                   ),
@@ -178,10 +179,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             onPageChanged: (page) {
               tabController.animateTo(page);
             },
-            children: [ 
-               WorkExPage(),       // NamePage(),
+            children: [
+              NamePage(),
               AboutPage(),
               EduPage(),
+              WorkExPage(),
               ProjectPage(),
               SkillPage(),
               ContactPage(),
@@ -239,7 +241,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     return InkWell(
       onTap: () async {
         Navigator.of(context).pop();
-        await Future.delayed(Duration(seconds: 1));
+        await Future.delayed(Duration(milliseconds: 500));
         controller.animateToPage(pageNo.floor(),
             duration: Duration(milliseconds: 500), curve: Curves.easeOut);
       },
@@ -270,7 +272,7 @@ class SocialHandles extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () async {
-            await launch('https://www.instagram.com/the.hustler___/');
+            await launchUrlString('https://www.instagram.com/the.hustler___/');
           },
           child: Image.asset(
             'assets/images/instagram.png',
@@ -282,7 +284,7 @@ class SocialHandles extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () async {
-            await launch('https://www.linkedin.com/in/ss26/');
+            await launchUrlString('https://www.linkedin.com/in/ss26/');
           },
           child: Image.asset(
             'assets/images/linkedin.png',
@@ -294,7 +296,7 @@ class SocialHandles extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () async {
-            await launch('https://github.com/surajsisodia');
+            await launchUrlString('https://github.com/surajsisodia');
           },
           child: Image.asset(
             'assets/images/github.png',
@@ -306,7 +308,7 @@ class SocialHandles extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () async {
-            await launch('https://twitter.com/marcos_suraj');
+            await launchUrlString('https://twitter.com/marcos_suraj');
           },
           child: Image.asset(
             'assets/images/twitter.png',

@@ -23,6 +23,40 @@ class _ProjectPageState extends State<ProjectPage> {
     h = MediaQuery.of(context).size.height;
     final isSmallScreen = ResponsiveWidget.isSmallScreen(context);
 
+    List<Widget> projectWidgets = [
+      projectCard(
+          image: 'assets/images/glowcal.png',
+          title: "GlowCal",
+          des:
+              "A Food Donation mobile application, build upon Flutter framework, to satisfy hunger of the needy ones. The app provides a complete platform to NGOs and donator(having excess food, eg. party, marraige) to connect with each other. Encouraging donars by coupons, on each donation they do.",
+          link: 'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
+      projectCard(
+          image: 'assets/images/askthrifty.png',
+          title: "AskThrifty",
+          des:
+              "A Quora like mobile application, providing a platform to users to post their curious question and polls. Helping them to get answer of some of the toughest questions or have an general perspective of other people on your Poll.",
+          link: ""),
+      projectCard(
+          image: 'assets/images/co.png',
+          title: "ConJoin",
+          des:
+              "An all-in-one mobile application for college going people, to get all the survival necessity on a single platform. Be it bulletine board, assignments, event news, attendance tracker. More stuffs are planned for future updates.",
+          link: 'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
+      projectCard(
+          image: 'assets/images/saidiera.png',
+          title: "Saidiera Supermercado",
+          des:
+              "An ecommerce platform, allowing user to browse, purchase and manage their order. This app is accompanied by a rider app.",
+          link:
+              'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
+      projectCard(
+          image: 'assets/images/jag.png',
+          title: "JagCab",
+          des:
+              "A simple and minimalistic mobile application, built upon Flutter, to provide hassle-free cab booking service. Apart from cab service, it also provide option of self-drive cars.",
+          link: ""),
+    ];
+
     return Container(
       padding: EdgeInsets.only(top: 30),
       color: darkColor,
@@ -32,41 +66,7 @@ class _ProjectPageState extends State<ProjectPage> {
             scrollDirection: isSmallScreen ? Axis.horizontal : Axis.horizontal,
             child: isSmallScreen
                 ? Row(
-                    children: [
-                      projectCard(
-                          image: 'assets/images/glowcal.png',
-                          title: "GlowCal",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
-                      projectCard(
-                          image: 'assets/images/askthrifty.png',
-                          title: "AskThrifty",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link: "www.google.com"),
-                      projectCard(
-                          image: 'assets/images/co.png',
-                          title: "ConJoin",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
-                      projectCard(
-                          image: 'assets/images/saidiera.png',
-                          title: "Saidiera Supermercado",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
-                      projectCard(
-                          image: 'assets/images/jag.png',
-                          title: "JagCab",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link: "www.google.com"),
-                    ],
+                    children: projectWidgets,
                   )
                 : Wrap(
                     spacing: b * 0.02,
@@ -75,41 +75,7 @@ class _ProjectPageState extends State<ProjectPage> {
                     alignment: WrapAlignment.center,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     // mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      projectCard(
-                          image: 'assets/images/glowcal.png',
-                          title: "GlowCal",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://github.com/surajsisodia/GlowCal-Flutter-GDSC-2021'),
-                      projectCard(
-                          image: 'assets/images/askthrifty.png',
-                          title: "AskThrifty",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link: "www.google.com"),
-                      projectCard(
-                          image: 'assets/images/co.png',
-                          title: "ConJoin",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://github.com/surajsisodia/HackBash_Team_MARCOS'),
-                      projectCard(
-                          image: 'assets/images/saidiera.png',
-                          title: "Saidiera Supermercado",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link:
-                              'https://play.google.com/store/apps/details?id=com.supermacado.saideira'),
-                      projectCard(
-                          image: 'assets/images/jag.png',
-                          title: "JagCab",
-                          des:
-                              "Sample Sample Sample Sample Sample Sample Sample Sample Sample ",
-                          link: "www.google.com"),
-                    ],
+                    children: projectWidgets,
                   ),
           ),
         ),
@@ -177,6 +143,7 @@ class _ProjectPageState extends State<ProjectPage> {
                       Text(
                         des!,
                         overflow: TextOverflow.ellipsis,
+                        maxLines: 4,
                         style: TextStyle(color: Colors.white.withOpacity(0.6)),
                       )
                     ],

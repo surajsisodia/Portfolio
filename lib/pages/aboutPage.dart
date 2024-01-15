@@ -288,8 +288,8 @@ class _ProfileImageContainerState extends State<ProfileImageContainer> {
     return MouseRegion(
       onEnter: (event) {
         shadow = BoxShadow(
-          color: selectColor,
-          blurRadius: 40,
+          color: Colors.white.withOpacity(0.3),
+          blurRadius: 60,
           spreadRadius: 10,
         );
         setState(() {});
