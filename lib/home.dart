@@ -78,98 +78,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     return Scaffold(
       key: _scaffoldKey,
-      appBar: !showAppBar
-          ? null
-          : AppBar(
-              backgroundColor: darkColor,
-              elevation: 0,
-              scrolledUnderElevation: 10,
-              actions: [
-                if (ResponsiveWidget.isLargeScreen(context))
-                  SizedBox(
-                    width: 870,
-                    child: TabBar(
-                      controller: tabController,
-                      dividerColor: Colors.transparent,
-                      tabs: [
-                        Text("Home", style: theme.textTheme.bodyText1!),
-                        Text('About', style: theme.textTheme.bodyText1!),
-                        Text('Education', style: theme.textTheme.bodyText1!),
-                        Text("Experience", style: theme.textTheme.bodyText1!),
-                        Text("Projects", style: theme.textTheme.bodyText1!),
-                        Text('Skills', style: theme.textTheme.bodyText1!),
-                        Text('Contact', style: theme.textTheme.bodyText1!),
-                      ],
-                      unselectedLabelColor: Colors.white,
-                      labelColor: Colors.white,
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      indicator: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: selectColor),
-                      onTap: (tab) {
-                        controller.animateToPage(tab,
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeOut);
-                      },
-                    ),
-                  ),
-              ],
-            ),
       extendBodyBehindAppBar: true,
-      drawer: ResponsiveWidget.isLargeScreen(context)
-          ? null
-          : Drawer(
-              backgroundColor: darkColor,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  drawerItem("Home", 0, Icons.home),
-                  drawerItem("About", 1, Icons.person),
-                  drawerItem("Education", 2, Icons.book),
-                  drawerItem("Experience", 3, Icons.work),
-                  drawerItem("Projects", 4, Icons.web),
-                  drawerItem("Skills", 5, Icons.settings),
-                  drawerItem("Contacts", 6, Icons.email),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 1,
-                    color: Colors.white.withOpacity(0.1),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text("Follow me at"),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                    child: Align(
-                        alignment: Alignment.center, child: SocialHandles()),
-                  ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Baseline(
-                          baseline: 36,
-                          baselineType: TextBaseline.alphabetic,
-                          child: Text('Made with \u2665\n',
-                              textAlign: TextAlign.center)),
-                      Text(' using '),
-                      Image.asset(
-                        'assets/images/flutter-icon.png',
-                        width: 16,
-                      )
-                    ],
-                  ),
-                  // Text("by Hustler"),
-                  //SizedBox(height: 10)
-                ],
-              ),
-            ),
+      drawer: ResponsiveWidget.isLargeScreen(context) ? null : appDrawer(),
       backgroundColor: darkColor,
       body: Stack(
         children: [
@@ -205,7 +115,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     height: 100,
                     child: RiveAnimation.asset(
                       'assets/anim/upward_anim.riv',
-                      // artboard: "New Artboard",
                     ),
                   )),
             ),
@@ -230,7 +139,91 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   width: b * 0.05,
                 ),
               ),
-            )
+            ),
+          if (ResponsiveWidget.isLargeScreen(context) && showAppBar)
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                margin: EdgeInsets.only(top: 20, right: 20),
+                width: 870,
+                child: TabBar(
+                  controller: tabController,
+                  dividerColor: Colors.transparent,
+                  tabs: [
+                    Text("Home", style: theme.textTheme.bodyText1!),
+                    Text('About', style: theme.textTheme.bodyText1!),
+                    Text('Education', style: theme.textTheme.bodyText1!),
+                    Text("Experience", style: theme.textTheme.bodyText1!),
+                    Text("Projects", style: theme.textTheme.bodyText1!),
+                    Text('Skills', style: theme.textTheme.bodyText1!),
+                    Text('Contact', style: theme.textTheme.bodyText1!),
+                  ],
+                  unselectedLabelColor: Colors.white,
+                  labelColor: Colors.white,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: selectColor),
+                  onTap: (tab) {
+                    controller.animateToPage(tab,
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeOut);
+                  },
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Drawer appDrawer() {
+    return Drawer(
+      backgroundColor: darkColor,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          drawerItem("Home", 0, Icons.home),
+          drawerItem("About", 1, Icons.person),
+          drawerItem("Education", 2, Icons.book),
+          drawerItem("Experience", 3, Icons.work),
+          drawerItem("Projects", 4, Icons.web),
+          drawerItem("Skills", 5, Icons.settings),
+          drawerItem("Contacts", 6, Icons.email),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: double.infinity,
+            height: 1,
+            color: Colors.white.withOpacity(0.1),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text("Follow me at"),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Align(alignment: Alignment.center, child: SocialHandles()),
+          ),
+          Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Baseline(
+                  baseline: 36,
+                  baselineType: TextBaseline.alphabetic,
+                  child:
+                      Text('Made with \u2665\n', textAlign: TextAlign.center)),
+              Text(' using '),
+              Image.asset(
+                'assets/images/flutter-icon.png',
+                width: 16,
+              )
+            ],
+          ),
         ],
       ),
     );
@@ -264,7 +257,6 @@ class SocialHandles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var b = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return Row(
       // mainAxisAlignment: MainAxisAlignment.end,

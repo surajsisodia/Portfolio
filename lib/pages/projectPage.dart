@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/utils/colors.dart';
 import 'package:my_portfolio/utils/responsive_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:my_portfolio/extensions/hover_extentions.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
